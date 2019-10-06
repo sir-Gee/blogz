@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>All registered users:</h1>
+<hr/>
+
+    <ul style="list-style: none;">
+        {% for user in users %}
+        <div style="background-color:#ECF1F2; width:450px; padding:10px; margin: 10px">
+        <h4><li><a href="?user_id={{user.id}}">{{user.username}}</a> </li></h4>
+        </div>
+        {% else %}
+        <h5>No users yet</h5>
+        {% endfor %}
+    </ul>
+
+
+
+
+
+{% endblock %}

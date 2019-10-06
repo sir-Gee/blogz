@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>BlogZ!</h1>
+<hr/>
+<a href="?user_id={{post.owner.id}}"><button class="btn btn-info">Go Back</button></a>
+<div style="background-color:#ECF1F2; width:450px; padding:10px; margin-left: 50px; margin-top:10px">
+<h2>{{post.title}}</h2>
+<p>
+    {{post.text}}
+</p>
+</div>
+
+
+
+
+{% endblock %}

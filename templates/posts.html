@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>BlogZ!</h1>
+<hr/>
+<a href="/"><button class="btn btn-info" style="padding-left:10px;">Go Back</button></a>
+
+
+    <ul style="list-style: none;">
+        {% for post in posts %}
+        <div style="background-color:#ECF1F2; width:450px; padding:10px; margin: 10px">
+        <h4><li><a href="?post_id={{post.id}}">{{post.title}}</a> </li></h4>
+        <h5>{{post.text}}</h5>
+        <h6 style="color:grey">Created: {{post.created_at}} by {{post.owner.email}}</h6>
+        </div>
+        {% else %}
+        <h5>No posts yet</h5>
+        {% endfor %}
+    </ul>
+
+
+
+
+
+{% endblock %}

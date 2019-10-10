@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>BlogZ! </h1>
+<hr/>
+    <ul style="list-style: none;">
+        {% for post in posts %}
+        <div style="background-color:#ECF1F2; width:450px; padding:10px; margin: 10px">
+        <h4><li><a href="index?user_id={{request.args.get('post.owner.id')}}&post_id={{post.id}}">{{post.title}}</a> </li></h4>
+        <h5>{{post.text}}</h5>
+            <h6 style="color:grey">Created: {{post.created_at}} by <a href="/index?user_id={{post.owner.id}}">{{post.owner.username}}</a></h6>
+<!--        <a href="?user_id={{request.args.get('user_id')}}&post_id={{post.id}}&delete_post=del"><button class="btn btn-info" style="padding-left:10px;">Delete</button></a>-->
+        </div>
+        {% else %}
+        <br/>
+        <h5>No posts yet</h5>
+        {% endfor %}
+    </ul>
+
+
+
+
+
+{% endblock %}

@@ -1,19 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>BlogZ!</h1>
+
+<h1>BlogZ of {{user.username}}</h1>
+
+
+
 <hr/>
 <a href="/"><button class="btn btn-info" style="padding-left:10px;">Go Back</button></a>
+<a href="?user_id={{request.args.get('user_id')}}&sort_desc=desc"><button class="btn btn-info" style="padding-left:10px;">Sort descending</button></a>
+<a href="?user_id={{request.args.get('user_id')}}&sort_asc=asc"><button class="btn btn-info" style="padding-left:10px;">Sort ascending</button></a>
+
+<button class="btn btn-info" style="padding-left:10px;" onclick="print()">Print</button>
+<hr/>
 
 
     <ul style="list-style: none;">
         {% for post in posts %}
         <div style="background-color:#ECF1F2; width:450px; padding:10px; margin: 10px">
-        <h4><li><a href="?post_id={{post.id}}">{{post.title}}</a> </li></h4>
+        <h4><li><a href="?user_id={{request.args.get('user_id')}}&post_id={{post.id}}">{{post.title}}</a> </li></h4>
         <h5>{{post.text}}</h5>
-        <h6 style="color:grey">Created: {{post.created_at}} by {{post.owner.email}}</h6>
+            <h6 style="color:grey">Created: {{post.created_at}} by <a href="?user_id={{request.args.get('user_id')}}">{{post.owner.username}}</a></h6>
+        <a href="?user_id={{request.args.get('user_id')}}&post_id={{post.id}}&delete_post=del"><button class="btn btn-info" style="padding-left:10px;">Delete</button></a>
         </div>
         {% else %}
+        <br/>
         <h5>No posts yet</h5>
         {% endfor %}
     </ul>

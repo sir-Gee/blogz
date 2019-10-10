@@ -8,6 +8,8 @@
 <h2>{{post.title}}</h2>
 <p>
     {{post.text}}
+    <h6 style="color:grey">Created: {{post.created_at}} by <a href="?user_id={{request.args.get('user_id')}}">{{post.owner.username}}</a></h6>
+
 </p>
 </div>
 

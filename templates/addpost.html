@@ -3,24 +3,25 @@
 {% block content %}
 <div style="margin-left:10px;">
 <h1>Add a new post</h1>
+    <hr/>
     <form action="/addpost" method='post'>
         <label>
             Title for your new post:
             <br/>
-            <input type="text" size="40" name='title' />
+            <input type="text" size="40" name='title' placeholder="Your title here"/>
         </label>
         <br/>
         <br/>
         <label>
             Your text for your new post:
             <br/>
-            <textarea rows="10" cols="45" name="text"></textarea>
+            <textarea rows="10" cols="45" name="text" placeholder="Here should be something good..."></textarea>
 
         </label>
         <br/>
         <input class="btn btn-success" type="submit" value='Add Post' />
-        {% if errorTask %}
-        <span style="color: red;">{{errorTask}}</span>
+        {% if errorPost %}
+        <span style="color: red;">{{errorPost}}</span>
         {% endif %}
     </form>
 </div>

@@ -6,7 +6,7 @@
       {% if messages %}
         <ul class=flashes>
         {% for category, message in messages %}
-              <li class="{{ category }}" class="error" style="list-style:none; color:red">{{ message }}</li>
+              <li class="{{ category }}" style="list-style:none; color:red">{{ message }}</li>
         {% endfor %}
         </ul>
       {% endif %}
@@ -16,9 +16,9 @@
      <table>
           <tbody>
             <tr>
-              <td>Email</td>
+              <td>Username</td>
               <td>
-                  <input type="text" name="email"/>
+                  <input type="text" name="username" value="{{username}}"/>
                   <span class="error">
                   </span>
               </td>

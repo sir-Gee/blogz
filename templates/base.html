@@ -40,21 +40,27 @@
 <body>
     <nav class="nav">
       <li class="nav-item">
-        <a class="nav-link active nav-but" href="/">Main blog page</a>
+        <a class="nav-link active nav-but" href="/index">Main blog page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active nav-but" href="/blogs">Blogs</a>
       </li>
       <li class="nav-item">
         <a class="nav-link nav-but"  href="/addpost">Add a new post</a>
       </li>
+
+      {% if 'username' not in session %}
       <li class="nav-item">
         <a class="nav-link nav-but" href="/register">Register</a>
       </li>
+      {% endif %}
 
-      {% if 'email' in session %}
+      {% if 'username' in session %}
       <li class="nav-item" id="logout">
           <a class="nav-link nav-but" id="navbar" href="/logout" style="color:red">Log out</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">You are logged in as <span style="color:green; font-style: italic;">{{ session['email'] }}</span></a>
+          <a class="nav-link disabled" aria-disabled="true">You are logged in as <span style="color:green; font-style: italic;">{{ session['username'] }}</span></a>
       </li>
       {% else %}
       <li class="nav-item">
